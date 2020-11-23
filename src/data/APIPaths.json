@@ -1,0 +1,10 @@
+{
+  "idcsPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/registeruser",
+  "selfRegistrationValue": "ac7cf2bae7bf40458117ba04367535c1",
+  "getTokenPath": "https://idcs-93d02671fcb2467eadd55f2f6687c74a.identity.oraclecloud.com/oauth2/v1/token",
+  "newDBUserPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/cadastro",
+  "userInfoPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/cadastro",
+  "newRequestPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/solicitacao",
+  "getResultsPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/registros",
+  "getImagePath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/getimage"
+}
