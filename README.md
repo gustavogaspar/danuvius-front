@@ -18,7 +18,7 @@ copy this repo to a Oracle Linux instance, and run the script install.sh to crea
 
     - secret: Your docker repo secret.[IMPORTANT] If you are using Oracle Cloud infrastructure Registry its mandatory that you have one secret configured in your cluster, please refer to: [Pulling Images from Registry during Kubernetes Deployment](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Tasks/registrypullingimagesfromocir.htm)
 
-    - service/type: You can choose whether you want to use "NodePort" or "LoadBalancer" service type to expose your deployment.To know the difference between than, you can access [HERE](https://kubernetes.io/docs/concepts/services-networking/service/)
+    - service/type: You can choose whether you want to use "NodePort" or "LoadBalancer" service type to expose your deployment.To know the difference between them, you can access [HERE](https://kubernetes.io/docs/concepts/services-networking/service/)
 
  3. With kubectl installed and configured to your kubernetes cluster navigate to the manifests folder and run ``` kubectl apply -f danuvius.yaml ```. Check how you can configure your own kubernetes cluster on oracle cloud: [Creating a Kubernetes Cluster](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengcreatingclusterusingoke.htm) and also you can configure your access to your cluster by following this guide [Setting Up Cluster Access](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengdownloadkubeconfigfile.htm)
 
