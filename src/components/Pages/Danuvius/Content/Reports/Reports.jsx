@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Header, Table } from "semantic-ui-react";
+import paths from "../../../../../data/APIPaths.json"
 
 class Reports extends Component {
 
@@ -15,6 +16,7 @@ class Reports extends Component {
               <Table.HeaderCell>Id</Table.HeaderCell>
               <Table.HeaderCell>Reba Score</Table.HeaderCell>
               <Table.HeaderCell>Recommendations</Table.HeaderCell>
+              <Table.HeaderCell>Download Image Link</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -31,6 +33,7 @@ class Reports extends Component {
                 </Header>
               </Table.Cell>
               <Table.Cell>{item.recomend}</Table.Cell>
+              <Table.Cell><a href={`${paths.getImagePath}?userid=${localStorage.getItem("userID")}&requestid=${item.solicitacao_id}&Authorization=${localStorage.getItem("authToken")}`}>Download Image</a></Table.Cell>
             </Table.Row>
           </Table.Body>
         </>

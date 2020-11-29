@@ -8,5 +8,5 @@
   "userInfoPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/cadastro",
   "newRequestPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/solicitacao",
   "getResultsPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/registros",
-  "getImagePath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/getimage"
+  "getImagePath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/object/getimage"
 }

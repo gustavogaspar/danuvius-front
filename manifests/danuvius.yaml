@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-danuvius-front
+spec:
+  selector:
+    app: danuvius-front
+  ports:
+  - protocol: "TCP"
+    port: 5000
+    targetPort: 5000
+  type: # Here you need to put your own service type information
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danuvius-front
+spec:
+  selector:
+    matchLabels:
+      app: danuvius-front
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: danuvius-front
+    spec:
+      containers:
+      - name: danuvius-front
+        image: # Here you need to put your own registry information
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+        - name: # Here you need to put your own secret name 
