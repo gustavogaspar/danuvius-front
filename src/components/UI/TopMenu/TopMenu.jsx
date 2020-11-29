@@ -7,12 +7,13 @@ class TopMenu extends Component {
   render() {
     if (localStorage.getItem("authToken")) {
       return (
-        <Grid padded>
+        <Grid>
           <Grid.Row>
             <Grid.Column>
-              <Segment inverted color="olive" textAlign="center" raised>
+              <Segment inverted color="green" textAlign="center" raised>
                 <Menu secondary size="large">
                   <Image src={logo} size="tiny" wrapped circular />
+                  <Menu.Item  as={Link} to="#"><div className="title">Project Danuvius</div></Menu.Item>
                 </Menu>
               </Segment>
             </Grid.Column>
@@ -21,13 +22,13 @@ class TopMenu extends Component {
       );
     } else {
       return (
-        <Grid padded>
+        <Grid >
           <Grid.Row>
             <Grid.Column>
-              <Segment inverted color="olive" textAlign="center" raised>
+              <Segment inverted color="green" textAlign="center" raised>
                 <Menu secondary size="large" >
                   <Image src={logo} size="tiny" wrapped circular />
-                  <Menu.Item name="Project Danuvius" as={Link} to="/" />
+                  <Menu.Item  as={Link} to="/"><div className="title">Project Danuvius</div></Menu.Item>
                   <Menu.Menu position="right">
                     <Menu.Item name="Sign Up" as={Link} to="/signup" />
                     <Menu.Item name="Sign In" as={Link} to="/signin" />

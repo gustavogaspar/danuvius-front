@@ -1,4 +1,6 @@
 {
+  "idcsMainToken": "MjA4N2I2NzdkOTM4NGFjNjg0YmRmZGE4YTgwZDVkNGQ6ZDBjOTFkMjUtOTFjOS00MGE1LWE5OTEtOTU0MjA1YTZlOWNi",
+  "scope": "danuviusprojectdanuviusapi",
   "idcsPath": "https://aondch5kpwbv6luiww3arb4ixu.apigateway.sa-saopaulo-1.oci.customer-oci.com/danuvius/registeruser",
   "selfRegistrationValue": "ac7cf2bae7bf40458117ba04367535c1",
   "getTokenPath": "https://idcs-93d02671fcb2467eadd55f2f6687c74a.identity.oraclecloud.com/oauth2/v1/token",

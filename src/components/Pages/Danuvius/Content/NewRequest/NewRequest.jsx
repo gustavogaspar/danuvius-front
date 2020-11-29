@@ -6,34 +6,7 @@ class NewRequest extends Component {
   constructor() {
     super();
     this.userID = {};
-    this.state = { modal: false, response: "Loading..." };
-  }
-
-  componentDidMount() {
-    var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      "Bearer " + localStorage.getItem("authToken")
-    );
-
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch(
-      paths.userInfoPath + "?email=" + localStorage.getItem("email"),
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        let userInfo = JSON.parse(result);
-        this.userID = userInfo.items[0].userid;
-        localStorage.setItem("userID", this.userID);
-        console.log(this.userID);
-      })
-      .catch((error) => console.log("error", error));
+    this.state = { modal: false, status: "Loading..." };
   }
 
   _sendRequest() {
@@ -113,7 +86,7 @@ class NewRequest extends Component {
         <Modal size="tiny" open={this.state.modal}>
           <Modal.Header>Request Status</Modal.Header>
           <Modal.Content>
-            <p>{this.state.response}</p>
+            <p>{this.state.status}</p>
           </Modal.Content>
           <Modal.Actions>
             <Button positive onClick={this._handlerModal.bind(this)}>

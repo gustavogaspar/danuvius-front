@@ -1,0 +1,14 @@
+.footer {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 20px;
+  text-align:right;
+  position:absolute;
+  color: aliceblue;
+
+}
+.title{
+  font-family: 'Josefin Sans', sans-serif;
+}

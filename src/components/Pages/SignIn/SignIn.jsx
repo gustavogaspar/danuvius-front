@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Form, Label, Segment, Container, Header } from "semantic-ui-react";
+import {
+  Form,
+  Label,
+  Segment,
+  Container,
+  Header,
+  Loader,
+  Dimmer,
+} from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
 import paths from "../../../data/APIPaths.json";
 
@@ -10,7 +18,6 @@ class SignIn extends Component {
     this.password = "";
     this.state = {
       showError: "",
-      redirect: null,
     };
   }
 
@@ -26,15 +33,12 @@ class SignIn extends Component {
 
   _login() {
     var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      "Basic MjA4N2I2NzdkOTM4NGFjNjg0YmRmZGE4YTgwZDVkNGQ6ZDBjOTFkMjUtOTFjOS00MGE1LWE5OTEtOTU0MjA1YTZlOWNi"
-    );
+    myHeaders.append("Authorization", "Basic " + paths.idcsMainToken);
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("grant_type", "password");
-    urlencoded.append("scope", "danuviusprojectdanuviusapi");
+    urlencoded.append("scope", paths.scope);
     urlencoded.append("username", this.email);
     urlencoded.append("password", this.password);
 
@@ -50,28 +54,37 @@ class SignIn extends Component {
       .then((result) => {
         let message = JSON.parse(result);
         if (message.error) {
-          console.log(message.error)
+          console.log(message.error);
           this.setState({ showError: message });
+        } else {
+          this.props.changeEmail(this.email);
+          this.props.changeAuthToken(message.access_token);
+          this.props.collectUserInfo();
         }
-        else
-        {
-            this.props.changeEmail(this.email)
-            this.props.changeAuthToken(message.access_token)
-            this.setState({ redirect: "/danuvius" });
+      })
+      .then(() => {
+        if (this.props.loading === false) {
         }
       })
       .catch((error) => console.log("error", error));
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
+    if (this.props.loading) {
+      return (
+        <Dimmer active>
+          <Loader>Loading</Loader>
+        </Dimmer>
+      );
+    }
+    if (this.props.redirect) {
+      return <Redirect to={this.props.redirect} />;
     }
     return (
       <Container text>
         <Segment size="tiny">
           <Header as="h3" textAlign="center">
-            Sign In
+            <div className="title">Sign In</div>
           </Header>
           <Form onSubmit={this._login.bind(this)}>
             <Form.Field>
@@ -81,7 +94,6 @@ class SignIn extends Component {
               </Label>
               <input
                 type="email"
-                focus
                 onChange={this._handlerChangeEmail.bind(this)}
               />
             </Form.Field>
@@ -92,7 +104,6 @@ class SignIn extends Component {
               </Label>
               <input
                 type="password"
-                focus
                 onChange={this._handlerChangePassword.bind(this)}
               />
             </Form.Field>

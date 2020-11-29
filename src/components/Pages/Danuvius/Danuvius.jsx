@@ -8,7 +8,8 @@ class Danuvius extends Component {
   handleItemClick = (e, { name }) => {
     e.stopPropagation();
     e.preventDefault();
-    this.setState({ activeItem: name })};
+    this.setState({ activeItem: name });
+  };
 
   render() {
     const { activeItem } = this.state;
@@ -46,7 +47,7 @@ class Danuvius extends Component {
             </Grid.Column>
             <Grid.Column width={13}>
               <Segment>
-                <Content activeContent={this.state.activeItem} appState={this.props.appState}/>
+                <Content activeContent={this.state.activeItem} />
               </Segment>
             </Grid.Column>
           </Grid.Row>

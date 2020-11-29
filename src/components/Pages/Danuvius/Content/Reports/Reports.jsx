@@ -1,37 +1,52 @@
 import React, { Component } from "react";
-import { Header } from "semantic-ui-react";
-import paths from "../../../../../data/APIPaths.json";
+import { Header, Table } from "semantic-ui-react";
 
 class Reports extends Component {
-  constructor() {
-    super();
-    this.userID = {};
-  }
 
-  componentDidMount() {
-    var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      "Bearer " + localStorage.getItem("authToken")
-    );
-
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch(
-      paths.getResultsPath + "?userid=*" + localStorage.getItem("userID"),
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(JSON.parse(result)))
-      .catch((error) => console.log("error", error));
+  _listGenerator() {
+    let strItems = localStorage.getItem("reports");
+    let reports = JSON.parse(strItems);
+    return reports.reverse().map((item) => {
+      console.log(item);
+      return (
+        <>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Id</Table.HeaderCell>
+              <Table.HeaderCell>Reba Score</Table.HeaderCell>
+              <Table.HeaderCell>Recommendations</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>{item.id}</Table.Cell>
+              <Table.Cell>
+                <Header as="h4">
+                  <Header.Content>
+                    Score: {item.reba_score[0]}
+                    <Header.Subheader>
+                      {item.reba_score.substr(3)}
+                    </Header.Subheader>
+                  </Header.Content>
+                </Header>
+              </Table.Cell>
+              <Table.Cell>{item.recomend}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </>
+      );
+    });
   }
 
   render() {
-    return <Header>Reports</Header>;
+    return (
+      <>
+        <Header>Reports</Header>
+          <Table basic="very" celled>
+            {this._listGenerator()}{" "}
+          </Table>
+      </>
+    );
   }
 }
 

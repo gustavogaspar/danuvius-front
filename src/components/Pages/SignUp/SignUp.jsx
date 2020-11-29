@@ -197,29 +197,32 @@ class SignUp extends Component {
       <Container text>
         <Segment size="tiny">
           <Header as="h3" textAlign="center">
-            Sign Up
+            <div className="title">Sign Up</div>
           </Header>
           <Form onSubmit={this._createIDCSUser.bind(this)}>
-            <Form.Field>
-              <Label as="a" color="brown" ribbon>
-                {" "}
-                First Name{" "}
-              </Label>
-              <input
-                type="text"
-                onChange={this._handlerChangeFirstName.bind(this)}
-              />
-            </Form.Field>
-            <Form.Field>
-              <Label as="a" color="brown" ribbon>
-                {" "}
-                Last Name{" "}
-              </Label>
-              <input
-                type="text"
-                onChange={this._handlerChangeLastName.bind(this)}
-              />
-            </Form.Field>
+            <Form.Group widths="equal">
+              <Form.Field>
+                <Label as="a" color="brown" ribbon>
+                  {" "}
+                  First Name{" "}
+                </Label>
+                <input
+                  type="text"
+                  onChange={this._handlerChangeFirstName.bind(this)}
+                />
+              </Form.Field>
+              <Form.Field>
+                <Label as="a" color="brown" ribbon>
+                  {" "}
+                  Last Name{" "}
+                </Label>
+                <input
+                  type="text"
+                  onChange={this._handlerChangeLastName.bind(this)}
+                />
+              </Form.Field>
+            </Form.Group>
+
             <Form.Field>
               <Label as="a" color="brown" ribbon>
                 {" "}
